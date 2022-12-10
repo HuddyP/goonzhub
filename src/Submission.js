@@ -1,18 +1,20 @@
 import './App.css';
 import { useState } from 'react';
 
-//CURRENT ISSUE: JSON FILE DOES NOT UPDATE WITH INPUTTED INFO FROM FORM, ALL ELSE FUNCTIONAL AT THE MOMENT
-
 //To start JSON server, **CD INTO SRC FOLDER FIRST** and use command "npx json-server --watch data.json --port 3000" 
 
+//imports needed: react, react-router-dom, reactDOM, json-server
+
 export function Submit() {
+  
   
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [project, setProject] = useState("");
   const [time, setTime] = useState("");
   const [isPending, setIsPending] = useState(false);
-  
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const request = { name, email, project, time};
@@ -28,9 +30,8 @@ export function Submit() {
       }).then(() => {
         console.log("New Request Submitted!");
       });
-      
   };
-
+  
     return (
         <div>
             <h1>Submit your request for our code monkeys: </h1>
@@ -66,7 +67,5 @@ export function Submit() {
         </div>
     ); 
 }
-
-//look into how to print JSON file content on webpage, look further into videos in this tutorial series for help: https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d
 
 export default Submit;
