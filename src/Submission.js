@@ -19,7 +19,8 @@ class Submit extends React.Component {
       name: '',
       email: '',
       project: '',
-      time: ''
+      time: '',
+      formSubmitted: false,
     };
   }
   
@@ -54,8 +55,12 @@ class Submit extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state.name, this.state.email, this.state.project, this.state.time);
+    this.setState({ 
+      message: 'Your request has been received by the zookeeper and will be given to the monkeys soon',
+      formSubmitted: true,
+    });
     this.writeToFile();
-    this.setState({ message: 'Your request has been received by the zookeeper and will be given to the monkeys soon' });
   }
   
   render() {
@@ -96,6 +101,11 @@ class Submit extends React.Component {
             />
             </FormItem>
             <Button type={this.props.type} onClick={this.handleSubmit}>Submit Request</Button>
+              {this.state.formSubmitted && (
+                <>
+                  <p>{this.state.message}</p>
+                </>
+              )}
             </Form>
             
         </div>

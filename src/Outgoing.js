@@ -9,7 +9,8 @@ const RequestList = ({ request, name, email, project, time}) => {
                 <div>
                     <h2>{request.name}</h2>
                     <h3>{request.project}</h3>
-                    <p>Timeline: { request.time}</p>
+                    <p>{request.email}</p>
+                    <p>Timeline: {request.time}</p>
                 </div>
             ))}
         </div>
